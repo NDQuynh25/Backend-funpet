@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        th, td {
+            padding: 15px;
+            
+            font-size: 1.5rem;
+        }
+        th {
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <table class="table" style=" height: 100px;" >
+        <thead>
+            <tr>
+                
+                <th style="width: 20%;">Full Name</th>
+                <th style="width: 20%;">Email</th>
+                <th style="width: 10%;">Gender</th>
+                <th style="width: 15%;">Phone</th>
+                <th style="width: 15%;">Action</th>
+
+                <% for(var i=0; i < dataUser.length; i++) { %>
+                    <tr>
+                        <td><%= dataUser[i].fullName %></td>
+                        <td><%= dataUser[i].email %></td>
+                        <% if(dataUser[i].gender === 1){ %>
+                            <td>Male</td>
+                        <% } else{ %>
+                            <td>Female</td>
+                        <% } %>
+                        </td>
+                        <td><%= dataUser[i].phoneNumber %></td>
+                        <td>
+                            <a href="/edit-CRUD?id=<%= dataUser[i].id %>" type="button">Edit</a>
+                            <a href="/delete-CRUD?id=<%= dataUser[i].id %>" type="button">Delete</a>
+                        </td>
+                    </tr>
+                 <% } %>
+                
+            </tr>
+        </thead>
+    </table>
+        
+</body>
+</html>
